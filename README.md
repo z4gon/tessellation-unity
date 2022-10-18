@@ -8,11 +8,51 @@ Written in the Cg programming language in Unity **Unity 2021.3.10f1**
 
 ## Screenshots
 
-![Gif](./docs/1.gif)
-
 ---
 
 ## Implementation explained
 
+### Setup the Mesh
+
 1.  Create a low poly mesh in blender.
-1.  Create a Surface Shader with standard lighting model.
+1.  Ensure the UV map is setup correctly.
+
+![Gif](./docs/1.gif)
+![Gif](./docs/2.gif)
+
+### Surface Shader
+
+1. Create a Surface Shader with standard lighting model.
+1. The Standard Surface Shader will take care of lighting, shadows, tiling and offset.
+
+```c
+CGPROGRAM
+#pragma surface surf Standard nolightmap
+
+sampler2D _MainTex;
+
+struct Input
+{
+   float2 uv_MainTex;
+};
+
+half _Glossiness;
+half _Metallic;
+fixed4 _Color;
+float _TesselationEdgeLength;
+float _TesselationPhong;
+
+void surf (Input IN, inout SurfaceOutputStandard o)
+{
+   // Albedo comes from a texture tinted by color
+   fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+   o.Albedo = c.rgb;
+   // Metallic and smoothness come from slider variables
+   o.Metallic = _Metallic;
+   o.Smoothness = _Glossiness;
+   o.Alpha = c.a;
+}
+ENDCG
+```
+
+![Gif](./docs/3.gif)
