@@ -6,10 +6,6 @@ Written in the Cg programming language in Unity **Unity 2021.3.10f1**
 
 - [Learn Unity Shaders from Scratch by Nik Lever](https://www.udemy.com/course/learn-unity-shaders-from-scratch)
 
-## Screenshots
-
----
-
 ## Tesselation Support in Metal
 
 1. Metal does tessellation [in a very different way](https://forum.unity.com/threads/tessellation-shader-on-metal-without-surface-shader.1116316/), since it only supports vertex/fragment stages. It uses compute shaders instead.
@@ -64,3 +60,32 @@ ENDCG
 ```
 
 ![Gif](./docs/3.gif)
+
+### Tessellation
+
+1. Add the `#pragma` directives and define a custom function for tessellation.
+
+```c
+#pragma surface surf Standard nolightmap tessellate: tessellateEdge tessphong: _TessellationPhong
+
+#include "Tessellation.cginc"
+
+float _TessellationEdgeLength;
+float _TessellationPhong;
+
+float4 tessellateEdge(
+   appdata_full vertex0,
+   appdata_full vertex1,
+   appdata_full vertex2
+)
+{
+   // can create custom tessellation code here,
+   // or use Unity's built in functions
+   return UnityEdgeLengthBasedTess(
+         vertex0.vertex,
+         vertex1.vertex,
+         vertex2.vertex,
+         _TessellationEdgeLength
+   );
+}
+```
