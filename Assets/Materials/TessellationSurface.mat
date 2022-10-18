@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TesselationSurface
+  m_Name: TessellationSurface
   m_Shader: {fileID: 4800000, guid: 1b690f1d7b2f6420bb8ab4c2fc242bf5, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
@@ -90,10 +90,10 @@ Material:
     - _EmissionEnabled: 0
     - _FlipbookMode: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.869
+    - _Glossiness: 0.967
     - _GlossyReflections: 1
     - _LightingEnabled: 1
-    - _Metallic: 0.69
+    - _Metallic: 0.653
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Offset: 0.36
@@ -114,7 +114,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 1, g: 0.53333336, b: 0.6621672, a: 1}
+    - _Color: {r: 0.73260057, g: 0.8510241, b: 0.9528302, a: 1}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}

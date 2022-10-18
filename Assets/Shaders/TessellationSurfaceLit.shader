@@ -1,4 +1,4 @@
-Shader "Custom/TesselationSurfaceLit"
+Shader "Custom/TessellationSurfaceLit"
 {
     Properties
     {
@@ -6,8 +6,8 @@ Shader "Custom/TesselationSurfaceLit"
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
-        _TesselationEdgeLength ("Tesselation Edge Length", Range(2, 400)) = 20
-        _TesselationPhong ("Tesselation Phong", Range(0, 1)) = 0.5
+        _TessellationEdgeLength ("Tessellation Edge Length", Range(2, 400)) = 20
+        _TessellationPhong ("Tessellation Phong", Range(0, 1)) = 0.5
     }
     SubShader
     {
@@ -15,7 +15,28 @@ Shader "Custom/TesselationSurfaceLit"
         LOD 300
 
         CGPROGRAM
-        #pragma surface surf Standard nolightmap
+        #pragma surface surf Standard nolightmap tessellate: tessellateEdge tessphong: _TessellationPhong
+
+        #include "Tessellation.cginc"
+
+        float _TessellationEdgeLength;
+        float _TessellationPhong;
+
+        float4 tessellateEdge(
+            appdata_full vertex0,
+            appdata_full vertex1,
+            appdata_full vertex2
+        )
+        {
+            // can create custom tessellation code here,
+            // or use Unity's built in functions
+            return UnityEdgeLengthBasedTess(
+                vertex0.vertex,
+                vertex1.vertex,
+                vertex2.vertex,
+                _TessellationEdgeLength
+            );
+        }
 
         sampler2D _MainTex;
 
@@ -27,8 +48,6 @@ Shader "Custom/TesselationSurfaceLit"
         half _Glossiness;
         half _Metallic;
         fixed4 _Color;
-        float _TesselationEdgeLength;
-        float _TesselationPhong;
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {

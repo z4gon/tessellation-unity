@@ -1,4 +1,4 @@
-# Tesselation in a Surface Shader for the Built-In RP
+# Tessellation in a Surface Shader for the Built-In RP
 
 Written in the Cg programming language in Unity **Unity 2021.3.10f1**
 
@@ -39,8 +39,8 @@ struct Input
 half _Glossiness;
 half _Metallic;
 fixed4 _Color;
-float _TesselationEdgeLength;
-float _TesselationPhong;
+float _TessellationEdgeLength;
+float _TessellationPhong;
 
 void surf (Input IN, inout SurfaceOutputStandard o)
 {
