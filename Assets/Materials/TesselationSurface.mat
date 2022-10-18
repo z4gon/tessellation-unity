@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MyMaterial
-  m_Shader: {fileID: 210, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: TesselationSurface
+  m_Shader: {fileID: 4800000, guid: 1b690f1d7b2f6420bb8ab4c2fc242bf5, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _DEBUGGRADIENTS_ON
@@ -19,8 +19,7 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses:
-  - GRABPASS
+  disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -91,10 +90,10 @@ Material:
     - _EmissionEnabled: 0
     - _FlipbookMode: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.927
+    - _Glossiness: 0.956
     - _GlossyReflections: 1
     - _LightingEnabled: 1
-    - _Metallic: 0.12
+    - _Metallic: 0.219
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Offset: 0.36
@@ -105,6 +104,8 @@ Material:
     - _SoftParticlesNearFadeDistance: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _TesselationEdgeLength: 20
+    - _TesselationPhong: 0.5
     - _TilingColumns: 5
     - _TilingRows: 5
     - _TimeVelocity: 1
