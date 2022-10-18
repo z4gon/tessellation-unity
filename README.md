@@ -10,6 +10,14 @@ Written in the Cg programming language in Unity **Unity 2021.3.10f1**
 
 ---
 
+## Tesselation Support in Metal
+
+1. Metal does tessellation [in a very different way](https://forum.unity.com/threads/tessellation-shader-on-metal-without-surface-shader.1116316/), since it only supports vertex/fragment stages. It uses compute shaders instead.
+1. OpenGL Core [does have support for tessellation](https://docs.unity3d.com/Manual/SL-SurfaceShaderTessellation.html) and can be [enabled for the editor](https://docs.unity3d.com/Manual/OpenGLCoreDetails.html).
+1. OpenGL Core can also be forced via [command line arguments](https://docs.unity3d.com/Manual/EditorCommandLineArguments.html).
+1. Sadly OpenGL is [no longer supported](https://issuetracker.unity3d.com/issues/m1-switching-to-openglcore-doesnt-actually-change-the-active-graphics-api) on Apple Silicon chips.
+1. If you are running on an apple silicon chip, tessellation won't work for you with this shader.
+
 ## Implementation explained
 
 ### Setup the Mesh

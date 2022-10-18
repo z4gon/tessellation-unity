@@ -98,6 +98,7 @@ Material:
     - _OcclusionStrength: 1
     - _Offset: 0.36
     - _Parallax: 0.02
+    - _Phong: 0.5
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
@@ -106,6 +107,8 @@ Material:
     - _SrcBlend: 1
     - _TesselationEdgeLength: 20
     - _TesselationPhong: 0.5
+    - _TessellationEdgeLength: 10
+    - _TessellationPhong: 0.5
     - _TilingColumns: 5
     - _TilingRows: 5
     - _TimeVelocity: 1
