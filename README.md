@@ -1,20 +1,29 @@
-# Tessellation in a Surface Shader for the Built-In RP
+# Tessellation in HDRP and Built-in RP (Except Metal graphics API)
 
-Written in the Cg programming language in Unity **Unity 2021.3.10f1**
+**Unity 2021.3.10f1**
 
 ## References
 
 - [Learn Unity Shaders from Scratch by Nik Lever](https://www.udemy.com/course/learn-unity-shaders-from-scratch)
+- [Lit Tessellation Shader](https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@7.3/manual/Lit-Tessellation-Shader.html)
 
-## Tesselation Support in Metal
+## Implementation explained for HDRP
+
+1. Configure the project for using HDRP, see [migration steps](https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@7.1/manual/Upgrading-To-HDRP.html) from Built-in RP here.
+1. Create a Material and set it to use the `HDRP/LitTessellation` shader.
+
+![Gif](./docs/4.gif)
+![Gif](./docs/5.gif)
+
+## Implementation explained for Built-in RP
+
+### Tesselation Support in Metal
 
 1. Metal does tessellation [in a completely different way than all other APIs](https://forum.unity.com/threads/tessellation-shader-on-metal-without-surface-shader.1116316/).Metal doesn't support Hull, Domain, or Geometry shader stages, only vertex and fragment shader stages. Instead Metal uses a compute shader to calculate the tessellation for the mesh, and then the mesh is rendered as if it's using a normal vertex fragment shader.
 1. OpenGL Core [does have support for tessellation](https://docs.unity3d.com/Manual/SL-SurfaceShaderTessellation.html) and can be [enabled for the editor](https://docs.unity3d.com/Manual/OpenGLCoreDetails.html).
 1. OpenGL Core can also be forced via [command line arguments](https://docs.unity3d.com/Manual/EditorCommandLineArguments.html).
 1. Sadly OpenGL is [no longer supported](https://issuetracker.unity3d.com/issues/m1-switching-to-openglcore-doesnt-actually-change-the-active-graphics-api) on Apple Silicon chips.
 1. If you are running on an apple silicon chip, tessellation won't work for you with the surface shader in this project.
-
-## Implementation explained
 
 ### Setup the Mesh
 
