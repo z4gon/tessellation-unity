@@ -6,6 +6,7 @@
 
 - [Learn Unity Shaders from Scratch by Nik Lever](https://www.udemy.com/course/learn-unity-shaders-from-scratch)
 - [Lit Tessellation Shader](https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@7.3/manual/Lit-Tessellation-Shader.html)
+- [Adaptive GPU Tessellation with Compute Shaders by Jad Khoury and Jonathan Dupuy](https://onrendering.com/)
 
 ## Implementation explained for HDRP
 
